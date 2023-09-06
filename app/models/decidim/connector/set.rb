@@ -19,7 +19,11 @@ module Decidim
       end
 
       def has_remote_item?(remote_id)
-        items.exists?(remote_id: remote_id)
+        remote_item(remote_id).present?
+      end
+
+      def remote_item(remote_id)
+        items.find_by(remote_id: remote_id)
       end
     end
   end
