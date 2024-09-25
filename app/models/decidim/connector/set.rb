@@ -6,16 +6,16 @@ module Decidim
       belongs_to :organization, foreign_key: "decidim_organization_id", class_name: "Decidim::Organization"
       has_many :items, class_name: "Decidim::Connector::Item", foreign_key: "decidim_connector_set_id", dependent: :destroy
 
-      scope :with_organization, ->(organization) { where(organization: organization) }
+      scope :with_organization, ->(organization) { where(organization:) }
 
       validates :key, uniqueness: { scope: :organization }
 
       def self.get(organization, key)
-        with_organization(organization).find_by(key: key)
+        with_organization(organization).find_by(key:)
       end
 
       def config
-        OpenStruct.new(super) # rubocop:disable Style/OpenStructUse
+        OpenStruct.new(super)
       end
 
       def has_remote_item?(remote_id)
@@ -23,7 +23,7 @@ module Decidim
       end
 
       def remote_item(remote_id)
-        items.find_by(remote_id: remote_id)
+        items.find_by(remote_id:)
       end
     end
   end

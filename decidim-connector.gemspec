@@ -10,7 +10,7 @@ Gem::Specification.new do |s|
   s.email = ["antti.hukkanen@mainiotech.fi"]
   s.license = "AGPL-3.0"
   s.homepage = "https://github.com/decidim/decidim-module-connector"
-  s.required_ruby_version = ">= 3.0"
+  s.required_ruby_version = ">= 3.1"
   s.metadata["rubygems_mfa_required"] = "true"
 
   s.name = "decidim-connector"
