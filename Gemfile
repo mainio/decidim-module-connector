@@ -17,9 +17,16 @@ gem "decidim-connector", path: "."
 
 gem "bootsnap", "~> 1.4"
 
+# This is a temporary fix for: https://github.com/rails/rails/issues/54263
+# Without this downgrade Activesupport will give error for missing Logger
+gem "concurrent-ruby", "1.3.4"
+
 gem "puma", ">= 5.6.2"
 
 gem "faker", "~> 3.2"
+
+# This locks nokogiri to a version < 1.17 so it doesn't cause issues
+gem "nokogiri", "1.16.8"
 
 group :development, :test do
   gem "byebug", "~> 11.0", platform: :mri
@@ -36,12 +43,14 @@ group :development, :test do
   gem "rubocop", "~>1.28"
   gem "rubocop-faker"
   gem "rubocop-rspec", "2.20"
+
+  # Fix issue with simplecov-cobertura
+  # See: https://github.com/jessebs/simplecov-cobertura/pull/44
+  gem "rexml", "3.4.1"
 end
 
 group :development do
   gem "letter_opener_web", "~> 2.0"
   gem "listen", "~> 3.1"
-  gem "spring", "~> 2.0"
-  gem "spring-watcher-listen", "~> 2.0"
   gem "web-console", "~> 4.2"
 end
