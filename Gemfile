@@ -17,7 +17,7 @@ gem "decidim-connector", path: "."
 
 gem "bootsnap", "~> 1.4"
 
-gem "puma", ">= 5.6.2"
+gem "puma", ">= 6.4.2"
 
 gem "faker", "~> 3.2"
 
