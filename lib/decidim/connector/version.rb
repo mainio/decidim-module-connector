@@ -4,11 +4,11 @@ module Decidim
   # This holds the decidim-meetings version.
   module Connector
     def self.version
-      "0.30.0"
+      "0.31.0"
     end
 
     def self.decidim_version
-      "~> 0.30.0"
+      "~> 0.31.0"
     end
   end
 end
