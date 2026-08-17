@@ -8,8 +8,8 @@ module Decidim
       subject { item }
 
       let(:organization) { create(:organization) }
-      let(:set) { create(:connector_set, organization: organization) }
-      let(:item) { create(:connector_item, set: set, remote_id: "ext-001", data: { title: "Hello", status: "active" }) }
+      let(:set) { create(:connector_set, organization:) }
+      let(:item) { create(:connector_item, set:, remote_id: "ext-001", data: { title: "Hello", status: "active" }) }
 
       it { is_expected.to be_valid }
 
@@ -33,8 +33,8 @@ module Decidim
       end
 
       describe ".data scope" do
-        let!(:item1) { create(:connector_item, set: set, data: { value: "one" }) }
-        let!(:item2) { create(:connector_item, set: set, data: { value: "two" }) }
+        let!(:item1) { create(:connector_item, set:, data: { value: "one" }) }
+        let!(:item2) { create(:connector_item, set:, data: { value: "two" }) }
 
         it "plucks the data column from all items" do
           result = set.items.data

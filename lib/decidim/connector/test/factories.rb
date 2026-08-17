@@ -14,7 +14,7 @@ FactoryBot.define do
       end
 
       after(:create) do |set, evaluator|
-        create_list(:connector_item, evaluator.items_count, set: set)
+        create_list(:connector_item, evaluator.items_count, set:)
       end
     end
   end
