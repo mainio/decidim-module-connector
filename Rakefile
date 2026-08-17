@@ -5,6 +5,9 @@ require "decidim/dev/common_rake"
 desc "Generates a dummy app for testing"
 task test_app: "decidim:generate_external_test_app" do
   ENV["RAILS_ENV"] = "test"
+
+  system("bundle exec rails decidim_connector:install:migrations")
+  system("bundle exec rails db:migrate")
 end
 
 desc "Generates a development app."
